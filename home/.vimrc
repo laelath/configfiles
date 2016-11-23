@@ -5,8 +5,10 @@ set shell=bash
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'morhetz/gruvbox'
+Plugin 'dag/vim-fish'
 Plugin 'itchyny/lightline.vim'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
