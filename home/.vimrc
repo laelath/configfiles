@@ -12,6 +12,7 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
 set laststatus=2
+set noshowmode
 let g:lightline = {
 			\ 'colorscheme': 'gruvbox'
 			\ }
