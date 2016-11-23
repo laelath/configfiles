@@ -11,8 +11,6 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-
 set laststatus=2
 let g:lightline = {
 			\ 'colorscheme': 'gruvbox'
