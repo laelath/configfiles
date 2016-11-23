@@ -8,7 +8,3 @@ cp -r $config_dir/fish config/
 rm config/fish/fishd*
 cp -r $config_dir/i3 config/
 cp -r $config_dir/i3status config/
-
-if [ -f **.swp ]
-	rm **.swp
-end
