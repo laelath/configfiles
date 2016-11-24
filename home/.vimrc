@@ -9,6 +9,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'dag/vim-fish'
 Plugin 'itchyny/lightline.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator'
 call vundle#end()
 
 set laststatus=2
