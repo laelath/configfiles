@@ -21,6 +21,3 @@ set fish_color_status red
 set fish_color_user green
 set fish_color_valid_path --underline
 set fish_greeting
-
-set -Ux STEAM_FRAME_FORCE_CLOSE 1
-set -Ux STEAM_RUNTIME 0

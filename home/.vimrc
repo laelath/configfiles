@@ -23,6 +23,8 @@ set background=dark
 colorscheme gruvbox
 set relativenumber
 set number
+set list
+set listchars=tab:▸\ ,trail:~,extends:<,precedes:>,space:·,eol:¬
 
 filetype plugin indent on
 set tabstop=4
