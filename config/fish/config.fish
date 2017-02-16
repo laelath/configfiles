@@ -1,3 +1,3 @@
 if status --is-login
-	set PATH $PATH ~/Sync/Scripts
+	set PATH $PATH /usr/local/bin ~/Sync/Scripts
 end

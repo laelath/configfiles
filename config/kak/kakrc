@@ -1,0 +1,22 @@
+set global tabstop 4
+set global indentwidth 4
+
+set global termcmd "miniterm -e"
+
+map global normal '#' :comment-line<ret>
+map global normal '@' :comment-block<ret>
+
+hook global WinCreate .* %{
+    addhl show_matching
+    addhl show_whitespaces
+    addhl number_lines -relative -hlcursor
+    %sh{
+        until [ $PWD = / ]; do
+            if [ -e .settings.kak ]; then
+                echo source $PWD/.settings.kak
+                exit
+            fi
+            cd ..
+        done
+    }
+}
