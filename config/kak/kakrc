@@ -1,22 +1,32 @@
 set global tabstop 4
 set global indentwidth 4
-
 set global termcmd "miniterm -e"
+set global ui_options ncurses_assistant=none
 
 map global normal '#' :comment-line<ret>
 map global normal '@' :comment-block<ret>
+
+face Whitespace rgb:756875
+
+decl str settings_msg "No settings file found"
 
 hook global WinCreate .* %{
     addhl show_matching
     addhl show_whitespaces
     addhl number_lines -relative -hlcursor
+    hook window InsertChar \t %{ exec -draft -itersel h@ }
     %sh{
         until [ $PWD = / ]; do
             if [ -e .settings.kak ]; then
                 echo source $PWD/.settings.kak
+                echo set buffer settings_msg \"Using settings file $PWD/.settings.kak\"
                 exit
             fi
             cd ..
         done
     }
+}
+
+hook global WinDisplay .* %{
+    echo %sh{echo $kak_opt_settings_msg}
 }
