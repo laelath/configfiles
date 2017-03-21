@@ -32,6 +32,7 @@
     fg4="rgb:a89984"
 
     echo "
+        # Code highlighting
         face value     ${b_purple}
         face type      ${b_yellow}
         face variable  ${b_blue}
@@ -45,36 +46,37 @@
         face meta      ${b_aqua}
         face builtin   default+b
 
-        face title     ${yellow}
-        face header    ${blue}
-        face bold      ${fg2}
+        # Markdown highlighting
+        face title     ${b_green}+b
+        face header    ${b_orange}
+        face bold      ${fg}+b
         face italic    ${fg3}
         face mono      ${fg4}
-        face block     ${purple}
-        face link      ${red}
-        face bullet    ${orange}
-        face list      ${yellow}
+        face block     default
+        face link      default
+        face bullet    default
+        face list      default
 
         face Default            ${fg},${bg}
         face PrimarySelection   ${fg},${b_aqua}
         face SecondarySelection ${bg},${b_aqua}
         face PrimaryCursor      ${bg},${fg}
         face SecondaryCursor    ${bg},${fg}
-        face LineNumbers        ${b_gray}
-        face LineNumberCursor   ${b_yellow},${b_gray}+b
+        face LineNumbers        ${bg4}
+        face LineNumberCursor   ${b_yellow},${bg1}
         face MenuForeground     ${b_yellow},${fg}
         face MenuBackground     ${bg},${fg}
         face MenuInfo           ${bg}
         face Information        ${bg},${b_yellow}
         face Error              default,${b_red}
-        face StatusLine         default,${bg1}
+        #face StatusLine         default
         face StatusLineMode     ${b_orange}
         face StatusLineInfo     ${b_aqua}
         face StatusLineValue    ${b_green}
-        face StatusCursor       ${bg1},${fg}
+        face StatusCursor       ${bg},${fg}
         face Prompt             ${b_yellow}
         face MatchingChar       default+b
-        face BufferPadding      ${b_gray},${bg}
-        face Whitespace         ${b_gray}
+        face BufferPadding      ${bg2},${bg}
+        face Whitespace         ${bg2}
     "
 }
