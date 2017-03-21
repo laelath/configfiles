@@ -33,7 +33,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec tinyterm
+bindsym $mod+Return exec miniterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,29 +158,32 @@ bindsym $mod+r mode "resize"
 bar {
 	position top
 	status_command i3status
-	tray_output none
-	colors {
-		background #232323
-		statusline #DCDCDC
-	}
+	#tray_output none
+	#colors {
+		#background #232323
+		#statusline #DCDCDC
+	#}
 }
 
-bindsym XF86KbdBrightnessDown exec ~/Sync/Scripts/kb-light -
-bindsym XF86KbdBrightnessUp exec ~/Sync/Scripts/kb-light +
-bindsym XF86TouchpadToggle exec ~/Sync/Scripts/toggle-touchpad
+bindsym XF86KbdBrightnessDown exec kb-light -
+bindsym XF86KbdBrightnessUp exec kb-light +
+bindsym XF86TouchpadToggle exec toggle-touchpad
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
-bindsym $mod+b exec /usr/bin/pcmanfm
-bindsym $mod+i exec /usr/bin/chromium
-bindsym $mod+g exec /usr/bin/steam
-bindsym $mod+o exec /usr/bin/libreoffice
-bindsym $mod+t exec /usr/bin/teamspeak3
-bindsym $mod+m exec /usr/bin/mumble
-bindsym $mod+p exec /usr/bin/pavucontrol
+bindsym $mod+b exec pcmanfm
+bindsym $mod+i exec chromium
+bindsym $mod+g exec steam
+bindsym $mod+o exec libreoffice
+bindsym $mod+t exec teamspeak3
+bindsym $mod+m exec mumble
+bindsym $mod+p exec pavucontrol
+bindsym Print exec import -window root Pictures/screenshot.png
 
-exec --no-startup-id /usr/bin/gnome-keyring-daemon
-exec --no-startup-id /usr/bin/compton -cbf --vsync opengl
-exec ~/Sync/Scripts/wallpaper ~/Sync/Wallpapers/
-exec /usr/bin/steam -silent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec compton -cf -D 5
+exec wallpaper ~/Sync/Wallpapers/
+exec nm-applet
+exec syncthing-gtk -m
+exec steam -silent
