@@ -55,10 +55,10 @@
         face SecondaryCursor    ${bg},${fg}
         face LineNumbers        ${bg4}
         face LineNumberCursor   ${yellow},${bg1}
-        face MenuForeground     ${fg2},${bg2}
-        face MenuBackground     ${bg2},${fg2}
+        face MenuForeground     ${bg1},${aqua}
+        face MenuBackground     ${bg1},${fg2}
         face MenuInfo           ${bg}
-        face Information        ${bg2},${fg0}
+        face Information        ${bg1},${fg0}
         face Error              default,${red}
         face StatusLine         default
         face StatusLineMode     ${orange}
