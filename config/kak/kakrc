@@ -6,7 +6,7 @@ set global ui_options ncurses_assistant=none
 map global normal '#' :comment-line<ret>
 map global normal '@' :comment-block<ret>
 
-face Whitespace rgb:756875
+colorscheme gruvbox
 
 decl str settings_msg "No settings file found"
 
