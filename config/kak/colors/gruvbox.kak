@@ -32,7 +32,7 @@
         face string    ${green}
         face keyword   ${red}
         face operator  default
-        face attribute ${yellow}
+        face attribute ${orange}
         face comment   ${gray}
         face meta      ${aqua}
         face builtin   default+b
@@ -49,21 +49,21 @@
         face list      default
 
         face Default            ${fg},${bg}
-        face PrimarySelection   ${fg},${aqua}
-        face SecondarySelection ${bg},${aqua}
+        face PrimarySelection   ${fg},${blue}
+        face SecondarySelection ${bg},${blue}
         face PrimaryCursor      ${bg},${fg}
         face SecondaryCursor    ${bg},${fg}
         face LineNumbers        ${bg4}
         face LineNumberCursor   ${yellow},${bg1}
-        face MenuForeground     ${bg1},${aqua}
-        face MenuBackground     ${bg1},${fg2}
+        face MenuForeground     ${bg2},${blue}
+        face MenuBackground     default,${bg2}
         face MenuInfo           ${bg}
-        face Information        ${bg1},${fg0}
+        face Information        ${bg},${fg}
         face Error              default,${red}
         face StatusLine         default
-        face StatusLineMode     ${orange}
-        face StatusLineInfo     ${aqua}
-        face StatusLineValue    ${green}
+        face StatusLineMode     ${yellow}+b
+        face StatusLineInfo     ${purple}
+        face StatusLineValue    ${red}
         face StatusCursor       ${bg},${fg}
         face Prompt             ${yellow}
         face MatchingChar       default+b
