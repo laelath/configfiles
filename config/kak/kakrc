@@ -10,6 +10,7 @@ colorscheme gruvbox
 decl str settings_msg "No settings file found"
 
 hook global WinCreate .* %{
+    addhl regex "[ \t]+$" 0:black,red
     addhl show_matching
     addhl show_whitespaces
     addhl number_lines -relative -hlcursor
