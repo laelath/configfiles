@@ -1,22 +1,68 @@
 set global tabstop 4
 set global indentwidth 4
-set global termcmd "miniterm -e"
+set global termcmd 'miniterm -e'
 set global ui_options ncurses_assistant=none
 
 map global normal '#' :comment-line<ret>
 
+#map global insert <tab> '<a-;><gt>'
+#map global insert <backtab> '<a-;><lt>'
+
 colorscheme gruvbox
 
-decl str settings_msg "No settings file found"
-
 hook global WinCreate .* %{
-    addhl regex "[ \t]+$" 0:black,red
+    # Highlighter for trailing whitespace
+    addhl regex '[ \t]+$' 0:black,red
+
     addhl show_matching
     addhl show_whitespaces
     addhl number_lines -relative -hlcursor
+
     hook window InsertChar \t %{exec -draft -itersel h@}
     hook window InsertDelete ' ' %{try %{exec -draft hGh<a-k>\A\h+\Z<ret>gihyp<lt>}}
+}
+
+# Improved show matching for insert mode
+decl -hidden range-specs show_matching_insert
+
+hook global -group kakrc InsertChar [[(<{}>)\]] %{ eval -draft %{
+    try %{
+        exec -no-hooks <esc>\;hm\;
+        set window show_matching_insert "%val{timestamp}:%val{selection_desc}|SecondarySelection"
+    }
+
+    hook window -group once-matching InsertChar [^[(<{}>)\]] %{
+        set window show_matching_insert ""
+        rmhooks window once-matching
+    }
+
+    hook window -group once-matching InsertDelete .* %{
+        set window show_matching_insert ""
+        rmhooks window once-matching
+    }
+
+    hook window -group once-matching InsertMove .* %{
+        set window show_matching_insert ""
+        rmhooks window once-matching
+    }
+
+    hook window -group once-matching InsertEnd .* %{
+        set window show_matching_insert ""
+        rmhooks window once-matching
+    }
+} }
+
+hook global -group kakrc WinCreate .* %{
+    addhl ranges show_matching_insert
+}
+
+# Searching and loading local settings files
+decl str settings_msg 'No settings file found'
+
+hook global BufCreate .* %{
+    # Search for a settings file and load it if present
     %sh{
+        cd `dirname $kak_buffile`
         until [ $PWD = / ]; do
             if [ -e .settings.kak ]; then
                 echo source $PWD/.settings.kak
@@ -29,5 +75,5 @@ hook global WinCreate .* %{
 }
 
 hook global WinDisplay .* %{
-    echo %sh{echo $kak_opt_settings_msg}
+    echo %opt{settings_msg}
 }
