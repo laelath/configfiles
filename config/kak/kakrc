@@ -29,6 +29,8 @@ hook global -group kakrc InsertChar [[(<{}>)\]] %{ eval -draft %{
     try %{
         exec -no-hooks <esc>\;hm\;
         set window show_matching_insert "%val{timestamp}:%val{selection_desc}|SecondarySelection"
+    } catch %{
+        set window show_matching_insert "%val{timestamp}:%val{selection_desc}|Error"
     }
 
     hook window -group once-matching InsertChar [^[(<{}>)\]] %{
